@@ -23,3 +23,4 @@ responce_balance = requests.get(url_balance).json()
 with open('BalanceStatements.json','w') as f:
     json.dump(responce_balance, f, indent=4)
 
+#--- Макроэкономические данные можно брать с World bank api по странам-покупателям продукции---
