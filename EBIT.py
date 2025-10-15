@@ -1,7 +1,24 @@
 import pandas as pd
-import numpy as np
+from COGS import df_cogs_forecast
+from OPEX import df_opex_forecast
 from Revenue import df_revenue_pred
 
-df_forecast_ebit = pd.DataFrame({'Year': np.array([2025,2026,2027,2028,2029,2030]),
-                                 'PredictedRevenue': df_revenue_pred['PredictedRevenue']})
-#---EBIT = Revenue - COGS - OPEX
+#---EBIT = Revenue - COGS - OPEX---
+
+df = pd.concat([df_opex_forecast['Year'],
+                              df_revenue_pred['PredictedRevenue'],
+                              df_cogs_forecast['PredictedCOGS'],
+                              df_opex_forecast['PredictedOpex']], axis=1)
+
+df['ForecastEBIT'] = (df_revenue_pred['PredictedRevenue']
+                                    - df_cogs_forecast['PredictedCOGS']
+                                    - df_opex_forecast['PredictedOpex'])
+
+df_ebit_forecast = pd.concat([
+    df_opex_forecast['Year'],
+    df_revenue_pred['PredictedRevenue'],
+    df_cogs_forecast['PredictedCOGS'],
+    df_opex_forecast['PredictedOpex'],
+    df['ForecastEBIT']], axis=1)
+
+print(df_ebit_forecast)

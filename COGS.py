@@ -36,6 +36,5 @@ future_pred = np.exp(future_log_pred).flatten()
 df_cogs_forecast = pd.DataFrame({
     'Year': future_years.flatten(),
     'PredictedCOGS': future_pred})
-
 print(df_cogs_forecast)
 

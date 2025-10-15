@@ -25,7 +25,7 @@ X_poly = poly.fit_transform(x_year)
 model = LinearRegression()
 model.fit(X_poly, y_log)
 
-future_years = np.arange(2025, 2030).reshape(-1, 1)
+future_years = np.arange(2025, 2031).reshape(-1, 1)
 future_poly = poly.transform(future_years)
 future_log_pred = model.predict(future_poly)
 
