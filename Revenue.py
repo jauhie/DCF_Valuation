@@ -4,7 +4,6 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 
-
 def convert_json_to_dataframe(balance_path = 'BalanceStatements.json',
                               income_path = 'IncomeStatements.json'):
     with open(balance_path, 'r') as f:
@@ -38,7 +37,7 @@ X_poly = poly.fit_transform(X_year)
 
 model = LinearRegression()
 model.fit(X_poly, y_log)
-
+print(f"R² score: {model.score(X_poly, y_log):.4f}")
 future_years = np.array([2025, 2026, 2027, 2028, 2029, 2030]).reshape(-1, 1)
 future_poly = poly.transform(future_years)
 future_log_pred = model.predict(future_poly)
@@ -51,5 +50,3 @@ df_revenue_pred = pd.DataFrame({
     'Year': future_years.flatten(),
     'PredictedRevenue': future_revenue_pred
 })
-
-print(df_revenue_pred)

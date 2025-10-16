@@ -20,5 +20,3 @@ df_ebit_forecast = pd.concat([
     df_cogs_forecast['PredictedCOGS'],
     df_opex_forecast['PredictedOpex'],
     df['ForecastEBIT']], axis=1)
-
-print(df_ebit_forecast)
