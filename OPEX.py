@@ -2,8 +2,6 @@ import numpy as np
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
-
-# Импортируем df_income_sorted из вашего модуля Revenue
 from Revenue import df_income_sorted
 
 df_income_sorted['fiscalDateEnding'] = pd.to_datetime(df_income_sorted['fiscalDateEnding'], errors='coerce')
