@@ -35,7 +35,4 @@ future_pred = np.exp(future_log_pred).flatten()
 
 df_opex_forecast = pd.DataFrame({
     'Year': future_years.flatten(),
-    'PredictedOpex': future_pred
-})
-
-print(df_opex_forecast)
+    'PredictedOpex': future_pred})

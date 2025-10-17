@@ -1,6 +1,5 @@
 import json
 import requests
-import yfinance as yf
 
 api_key2 = 'YA2WLM36IRM85ZFT'
 ticker2 = 'OTLY'
