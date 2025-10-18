@@ -28,7 +28,7 @@ x_wc = np.log(df_wc['SmootedWC'].values).reshape(-1, 1)
 
 if np.isnan(x_wc).any() or np.isnan(y_year).any():
     print("ВНИМАНИЕ: Есть пропущенные значения в данных!")
-    # Заполним пропущенные значения
+    #---Заполним пропущенные значения
     x_wc = np.nan_to_num(x_wc)
     y_year = np.nan_to_num(y_year)
 
@@ -39,7 +39,7 @@ X_poly = poly.fit_transform(y_year)
 model = LinearRegression()
 model.fit(X_poly,x_wc)
 
-print(f"R² score: {model.score(X_poly, x_wc):.4f}")
+#print(f"R² score delta_WC: {model.score(X_poly, x_wc):.4f}")
 
 future_years = np.arange(2025, 2031).reshape(-1, 1)
 future_poly = poly.transform(future_years)
@@ -55,5 +55,4 @@ df_wc_forecast = pd.DataFrame({
     'Year': future_years.flatten(),
     'PredictedWC': future_pred})
 
-print(df_wc_forecast)
 

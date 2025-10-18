@@ -37,7 +37,7 @@ X_poly = poly.fit_transform(X_year)
 
 model = LinearRegression()
 model.fit(X_poly, y_log)
-print(f"R² score: {model.score(X_poly, y_log):.4f}")
+#print(f"R² score Revenue: {model.score(X_poly, y_log):.4f}")
 future_years = np.array([2025, 2026, 2027, 2028, 2029, 2030]).reshape(-1, 1)
 future_poly = poly.transform(future_years)
 future_log_pred = model.predict(future_poly)

@@ -23,7 +23,7 @@ X_poly = poly.fit_transform(x_year)
 model = LinearRegression()
 model.fit(X_poly, y_log)
 
-print(f"R² score depreciation: {model.score(X_poly, y_log):.4f}")
+#print(f"R² score depreciation: {model.score(X_poly, y_log):.4f}")
 
 future_years = np.arange(2025, 2031).reshape(-1, 1)
 future_poly = poly.transform(future_years)
@@ -43,14 +43,14 @@ df_depreciation_forecast = pd.DataFrame({
     'PredictedDepreciation_Conservative': conservative_pred
 })
 
-print("Оригинальный прогноз:")
-print(df_depreciation_forecast['PredictedDepreciation'])
-print("\nКонсервативный прогноз (макс. рост 8% в год):")
-print(df_depreciation_forecast['PredictedDepreciation_Conservative'])
+#print("Оригинальный прогноз:")
+#print(df_depreciation_forecast['PredictedDepreciation'])
+#print("\nКонсервативный прогноз (макс. рост 8% в год):")
+#print(df_depreciation_forecast['PredictedDepreciation_Conservative'])
 
 # Расчет темпов роста
 growth_rates = df_depreciation_forecast['PredictedDepreciation_Conservative'].pct_change().dropna()
-print(f"\nСреднегодовой рост консервативного прогноза: {growth_rates.mean():.1%}")
+#print(f"\nСреднегодовой рост консервативного прогноза: {growth_rates.mean():.1%}")
 
 
 
